@@ -1,0 +1,142 @@
+<!--<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Product Form</title>
+     Include Bootstrap CSS for styling 
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5" th:fragment="content">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center mb-4">Add New Product</h2>
+                <form th:action="@{/saveProduct}" th:object="${productModel}" method="post" class="form-horizontal">
+                    
+                     Product Name 
+                    <div class="form-group">
+                        <label for="proName">Product Name</label>
+                        <input type="text" th:field="*{proName}" class="form-control" id="proName" placeholder="Enter product name" required>
+                    </div>
+
+                     Product Price 
+                    <div class="form-group">
+                        <label for="proPrice">Price</label>
+                        <input type="number" th:field="*{proPrice}" class="form-control" id="proPrice" placeholder="Enter product price" required>
+                    </div>
+
+                     Product Brand 
+                    <div class="form-group">
+                        <label for="proBrand">Brand</label>
+                        <input type="text" th:field="*{proBrand}" class="form-control" id="proBrand" placeholder="Enter brand name" required>
+                    </div>
+
+                     Product Description 
+                    <div class="form-group">
+                        <label for="proDescription">Description</label>
+                        <textarea th:field="*{proDescription}" class="form-control" id="proDescription" rows="3" placeholder="Enter product description"></textarea>
+                    </div>
+
+                     Product Category (Dropdown) 
+                    <div class="form-group">
+                        <label for="proCategory">Category</label>
+                        <select th:field="*{proCategory}" class="form-control" id="proCategory">
+                            <option value="">Select a category</option>
+                            <option value="laptop">laptop</option>
+                            <option value="mobile">mobile</option>
+                            <option value="tab">tab</option>
+                            <option value="printer">printer</option>
+                            <option value="camera">camera</option>
+                        </select>
+                    </div>
+
+                     Submit Button 
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Save Product</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+     Include Bootstrap JS (Optional) 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Product Form</title>
+    <!-- Include Bootstrap CSS for styling -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5" th:fragment="content">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center mb-4">Add New Product</h2>
+                <form th:action="@{/saveProduct}" th:object="${productModel}" method="post" class="form-horizontal">
+                    
+                    <!-- Product Name -->
+                    <div class="form-group">
+                        <label for="proName">Product Name</label>
+                        <input type="text" th:field="*{proName}" class="form-control" id="proName" placeholder="Enter product name" >
+                        <div class="text-danger" th:if="${#fields.hasErrors('proName')}" th:errors="*{proName}">Product Name Error</div>
+                    </div>
+
+                    <!-- Product Price -->
+                    <div class="form-group">
+                        <label for="proPrice">Price</label>
+                        <input type="number" th:field="*{proPrice}" class="form-control" id="proPrice" placeholder="Enter product price" required>
+                        <div class="text-danger" th:if="${#fields.hasErrors('proPrice')}" th:errors="*{proPrice}">Price Error</div>
+                    </div>
+
+                    <!-- Product Brand -->
+                    <div class="form-group">
+                        <label for="proBrand">Brand</label>
+                        <input type="text" th:field="*{proBrand}" class="form-control" id="proBrand" placeholder="Enter brand name" required>
+                        <div class="text-danger" th:if="${#fields.hasErrors('proBrand')}" th:errors="*{proBrand}">Brand Error</div>
+                    </div>
+
+                    <!-- Product Description -->
+                    <div class="form-group">
+                        <label for="proDescription">Description</label>
+                        <textarea th:field="*{proDescription}" class="form-control" id="proDescription" rows="3" placeholder="Enter product description"></textarea>
+                        <div class="text-danger" th:if="${#fields.hasErrors('proDescription')}" th:errors="*{proDescription}">Description Error</div>
+                    </div>
+
+                    <!-- Product Category (Dropdown) -->
+                    <div class="form-group">
+                        <label for="proCategory">Category</label>
+                        <select th:field="*{proCategory}" class="form-control" id="proCategory">
+                            <option value="">Select a category</option>
+                            <option value="laptop">laptop</option>
+                            <option value="mobile">mobile</option>
+                            <option value="tab">tab</option>
+                            <option value="printer">printer</option>
+                            <option value="camera">camera</option>
+                        </select>
+                        <div class="text-danger" th:if="${#fields.hasErrors('proCategory')}" th:errors="*{proCategory}">Category Error</div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Save Product</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS (Optional) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

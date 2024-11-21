@@ -1,0 +1,35 @@
+ /* Center the brand in the navbar */
+        .navbar-brand {
+            margin-right: auto;
+            margin-left: auto;
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* Style the nav links with larger font and padding */
+        .navbar-nav .nav-link {
+            font-size: 1.2rem;
+            padding: 10px 15px;
+            color: white;
+        }
+
+        /* Add hover effect */
+        .navbar-nav .nav-link:hover {
+            background-color: #fff;
+            color: #28a745;
+            border-radius: 5px;
+        }
+
+        /* Ensure the navbar stays aligned correctly on larger screens */
+        .navbar-collapse {
+            justify-content: flex-end;
+        }
+
+        /* Make the navbar more responsive */
+        @media (max-width: 991px) {
+            .navbar-brand {
+                margin-left: 0;
+            }
+        }
+        
